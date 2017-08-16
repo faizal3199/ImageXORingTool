@@ -38,7 +38,7 @@ public class MainWindow extends JFrame {
 		
 		
 		//Select Files From User(Multiple Files Selecting)
-	    JFileChooser chooser = new JFileChooser();
+		JFileChooser chooser = new JFileChooser();
 		chooser.setMultiSelectionEnabled(true);
 	    int returnVal = chooser.showOpenDialog(c);
 	    File[] f = chooser.getSelectedFiles();
@@ -52,7 +52,7 @@ public class MainWindow extends JFrame {
 			image[i] = new AdvancedBufferedImage();
 		}
 		
-		prog.setText("Copy images to memeory");
+		prog.setText("Copying images to memory");
 		prog.updateBar(0);
 	    
 		//Copying images to memory
@@ -128,5 +128,8 @@ public class MainWindow extends JFrame {
 		ImageIO.write( image[arrLength-1].bufferedImage()  , "png" , saveFile );
 		
 		prog.updateBar(100);
+		System.out.println("Result image saved at : "+saveFile.getAbsolutePath());
+		System.exit(0);
+		return;
 	}
 }
